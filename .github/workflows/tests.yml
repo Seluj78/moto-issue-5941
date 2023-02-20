@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+  pull_request:
 
 jobs:
   test-unittest:
@@ -20,7 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
       - name: Touch empty AWS credentials
-        run: mkdir ~/.aws && touch ~/.aws/credentials
+        run: mkdir ~/.aws && touch ~/.aws/credentials && echo -e "[default]\naws_access_key_id = test\naws_secret_access_key = test" > ~/.aws/credentials
       - name: Run unittest
         run: python -m unittest main.py
 
