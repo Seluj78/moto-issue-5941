@@ -1,0 +1,11 @@
+flask
+json_log_formatter
+flask-cors
+argon2-cffi
+python-dateutil
+
+itsdangerous
+requests
+
+boto3
+

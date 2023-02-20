@@ -1,0 +1,4 @@
+responses
+moto[s3]
+-r requirements.txt
+
