@@ -6,7 +6,6 @@ from flask import Flask, request
 from werkzeug.utils import secure_filename
 import os
 import datetime
-from hub_backend.utils.s3 import s3_client
 from hashlib import md5
 import unittest
 import logging
@@ -81,7 +80,7 @@ class Tests(_TestCase):
     def test_upload_image(self):
         self._setup_s3()
 
-        data = {"image": (open("tests/assets/test_image.jpg", "rb"), "test_image.jpg")}
+        data = {"image": (open("test_image.jpg", "rb"), "test_image.jpg")}
         response = self.test_client.post("/users/me/profile_picture", data=data, content_type="multipart/form-data")
         logging.debug(response)
         logging.debug(response.text)
